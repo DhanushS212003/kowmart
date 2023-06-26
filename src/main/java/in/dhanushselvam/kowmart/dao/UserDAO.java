@@ -11,18 +11,10 @@ public class UserDAO {
 		
 	}
 	
-	public void create() {
-		
-		User user = new User();
-		user.setId(001);
-		user.setFirstName("dhanush");
-		user.setLastName("selvam");
-		user.setEmail("dhanush.selvam@fssa.freshworks.com");
-		user.setPassword("Aa!12345");
-		user.setActive(true);
+	public void create(User user) {
 		
 		UserList.listOfUser[0] = user;
 		
 	}
-
+ 
 }

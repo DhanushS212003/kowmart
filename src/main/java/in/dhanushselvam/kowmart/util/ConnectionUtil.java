@@ -1,30 +1,29 @@
 package in.dhanushselvam.kowmart.util;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class ConnectionUtil {
 
 	public static Connection getConnection() {
 
 		Connection connection = null;
-		String url = null;
-		String userName = null;
-		String password = null;
+		Dotenv env = Dotenv.load();
+		String url = env.get("DATABASE_HOST");
+		String userName = env.get("DATABASE_USERNAME");
+		String password = env.get("DATABASE_PASSWORD");
 
 		try {
 			// Class.forName("com.mysql.cj.jdbc.Drivers");
 			// connection = DriverManager.getConnection(url, userName, password);
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection = DriverManager.getConnection(
-			  "jdbc:mysql://aws.connect.psdb.cloud/kowmart?sslMode=VERIFY_IDENTITY",
-			  "b6toc49kxyc79wu6w1hs",
-			  "pscale_pw_m9OKDVnKaWMS8sqUzOVzI17NbnLTvifmTdQy54NhoXd");
-
+			connection = DriverManager.getConnection(url, userName, password);
 
 		} catch (Exception e) {
 			e.printStackTrace();

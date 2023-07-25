@@ -1,12 +1,12 @@
 package in.dhanushselvam.kowmart.validation;
 
-import in.dhanushselvam.kowmart.util.StringUtil;
+import in.dhanushselvam.kowmart.util.StringUtil; 
 import in.dhanushselvam.kowmart.exception.ValidationException;
-import in.dhanushselvam.kowmart.model.UserEntity;
+import in.dhanushselvam.kowmart.model.User;
 
 public class UserValidator {
 
-	public static void validate(UserEntity user) throws ValidationException {
+	public static void validate(User user) throws ValidationException {
 
 		if (user == null) {
 			throw new ValidationException("Invalid user input");

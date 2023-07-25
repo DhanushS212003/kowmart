@@ -1,11 +1,9 @@
 package in.dhanushselvam.kowmart.dao;
 
-import java.util.List;
+import java.util.List; 
 
 import in.dhanushselvam.kowmart.Interface.TaskInterface;
 import in.dhanushselvam.kowmart.model.Task;
-import in.dhanushselvam.kowmart.model.TaskEntity;
-import in.dhanushselvam.kowmart.model.User;
 
 public class TaskDAO implements TaskInterface {
 

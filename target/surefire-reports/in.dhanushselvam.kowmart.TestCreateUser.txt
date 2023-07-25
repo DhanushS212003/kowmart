@@ -1,20 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: in.dhanushselvam.kowmart.TestCreateUser
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in in.dhanushselvam.kowmart.TestCreateUser
-in.dhanushselvam.kowmart.TestCreateUser.testCreateUserWithPasswordEmpty()  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at in.dhanushselvam.kowmart.TestCreateUser.testCreateUserWithPasswordEmpty(TestCreateUser.java:90)
-
-in.dhanushselvam.kowmart.TestCreateUser.testCreateUserWithPasswordNull()  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at in.dhanushselvam.kowmart.TestCreateUser.testCreateUserWithPasswordNull(TestCreateUser.java:108)
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.664 s <<< FAILURE! - in in.dhanushselvam.kowmart.TestCreateUser
+in.dhanushselvam.kowmart.TestCreateUser.testCreateUserWithValidData()  Time elapsed: 4.661 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.RuntimeException
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.dhanushselvam.kowmart.TestCreateUser.testCreateUserWithValidData(TestCreateUser.java:21)
+Caused by: java.lang.RuntimeException
+	at in.dhanushselvam.kowmart.dao.UserDAO.create(UserDAO.java:78)
+	at in.dhanushselvam.kowmart.service.UserService.create(UserService.java:29)
+	at in.dhanushselvam.kowmart.TestCreateUser.lambda$testCreateUserWithValidData$0(TestCreateUser.java:22)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
 

@@ -1,8 +1,7 @@
 package in.dhanushselvam.kowmart;
 
-import java.time.LocalDate; 
+import java.time.LocalDate;  
 
-import in.dhanushselvam.kowmart.model.UserEntity;
 import in.dhanushselvam.kowmart.model.Task;
 import in.dhanushselvam.kowmart.model.User;
 import in.dhanushselvam.kowmart.service.TaskService;

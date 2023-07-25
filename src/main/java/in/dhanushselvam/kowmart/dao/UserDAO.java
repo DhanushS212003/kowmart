@@ -83,17 +83,27 @@ public class UserDAO implements UserInterface{
 	}
 	
 	public void update(int id, User updatedUser) {
-		List<User> userList = UserList.listOfUser;
-		for (User ListOfUsers: userList) {
-			User user1 = ListOfUsers;
-			
-			if (user1 == null) continue;
-			if (user1.getId() == id) {
-				ListOfUsers.setFirstName(updatedUser.getFirstName());
-				ListOfUsers.setLastName(updatedUser.getLastName());
-				ListOfUsers.setPassword(updatedUser.getFirstName());
-			}
-		}
+//		List<User> userList = UserList.listOfUser;
+//		for (User ListOfUsers: userList) {
+//			User user1 = ListOfUsers;
+//			
+//			if (user1 == null) continue;
+//			if (user1.getId() == id) {
+//				ListOfUsers.setFirstName(updatedUser.getFirstName());
+//				ListOfUsers.setLastName(updatedUser.getLastName());
+//				ListOfUsers.setPassword(updatedUser.getFirstName());
+//			}
+//		}
+		
+		Connection con = null;
+		PreparedStatement ps = null;
+		
+//		try {
+//			
+//			String query = "UPDATE users SET "
+//			
+//		}
+		
 	}
 	
 	public void delete(int id) {

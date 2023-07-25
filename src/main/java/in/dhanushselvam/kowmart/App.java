@@ -1,18 +1,16 @@
 package in.dhanushselvam.kowmart;
 
+import java.time.LocalDate; 
+
+import in.dhanushselvam.kowmart.model.UserEntity;
+import in.dhanushselvam.kowmart.model.Task;
 import in.dhanushselvam.kowmart.model.User;
+import in.dhanushselvam.kowmart.service.TaskService;
 import in.dhanushselvam.kowmart.service.UserService;
 
 public class App {
 
 	public static void main(String[] args) {
-
-//		UserService userService = new UserService();
-//		userService.create();
-//		userService.update();
-//		userService.delete();
-//		userService.getAll();
-//		userService.getById();
 
 		try {
 			UserService userService = new UserService();
@@ -27,6 +25,19 @@ public class App {
 
 			userService.create(user);
 			userService.getAll();
+			
+			String userInput = "23/07/2023";
+			LocalDate convertedDate = TaskService.convertToDate(userInput);
+			
+			TaskService taskService = new TaskService();
+			
+			Task task = new Task();
+			task.setId(1);
+			task.setName("dhanush");
+			task.setDueDate(convertedDate);
+			user.setActive(true);
+
+			taskService.create(task);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

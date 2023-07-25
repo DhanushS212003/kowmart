@@ -1,60 +1,52 @@
 package in.dhanushselvam.kowmart.service;
 
-import in.dhanushselvam.kowmart.dao.UserDAO;
-import in.dhanushselvam.kowmart.exception.ValidationException;
+import java.util.List; 
+import in.dhanushselvam.kowmart.dao.UserDAO; 
 import in.dhanushselvam.kowmart.model.User;
 import in.dhanushselvam.kowmart.validation.UserValidator;
 
 public class UserService {
+	
+	private UserDAO userDao;
+	
+	public UserService() {
+		this.userDao = new UserDAO();
+	}
 
-	public User[] getAll() {
+	public List<User> getAll() {
 
-		UserDAO userDao = new UserDAO();
-		User[] userList = userDao.findAll();
-
-		for (int i = 0; i < userList.length; i++) {
-			System.out.println(userList[i]);
+		List<User> userList = userDao.findAll();
+		for (User user: userList) {
+			System.out.print(user);
 		}
-
 		return userList;
-
 	}
 
-	public void create(User user) throws ValidationException {
+	public void create(User newUser) throws Exception {
 
-		UserValidator.validate(user);
+		UserValidator.validate(newUser);
 		UserDAO userDao = new UserDAO();
-		userDao.create(user);
+		userDao.create(newUser);
 
 	}
 	
-	public void update() {
-		
-		User updatedUser = new User();
-		
-		updatedUser.setFirstName("Dhanush");
-		updatedUser.setLastName("S");
+	public void update(int id, User updatedUser) {
 		
 		UserDAO userDao = new UserDAO();
-		userDao.update(2, updatedUser);
+		userDao.update(id, updatedUser);
 		
 	}
 	
-	public void delete() {
-		
-		User deleteUser = new User();
-		deleteUser.setActive(false);
+	public void delete(int id) {
 		
 		UserDAO userDao = new UserDAO();
-		userDao.delete(2,deleteUser);
+		userDao.delete(id);
 	}
 	
-	public User getById() {
+	public User findById(int id) {
 		
 		UserDAO userDao = new UserDAO();
-		User user = userDao.getById(1);
-		System.out.println(user);
-		return user;
+		return userDao.findById(id);
 		
 	}
  

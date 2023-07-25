@@ -1,88 +1,73 @@
 package in.dhanushselvam.kowmart.dao;
 
-import in.dhanushselvam.kowmart.model.Task;
+import java.util.List;
 
-public class TaskDAO {
-	
-private Task[] arr = TaskList.listOfTask;
-	
-	public Task[] findAll() {
-		
-		Task[] taskList = TaskList.listOfTask;
+import in.dhanushselvam.kowmart.Interface.TaskInterface;
+import in.dhanushselvam.kowmart.model.Task;
+import in.dhanushselvam.kowmart.model.TaskEntity;
+import in.dhanushselvam.kowmart.model.User;
+
+public class TaskDAO implements TaskInterface {
+
+	public List<Task> findAll() {
+		List<Task> taskList = TaskList.listOfTask;
 		return taskList;
-		
 	}
-	
-	public void create(Task task) {
-						
-		for (int i = 0; i < arr.length; i++) {
-			
-			Task currentTask = arr[i];
-			
-			if (currentTask == null) {
-				arr[i] = task;
-				break;
-			}
-			
-		}
-		
+
+	public void create(Task newTask) {
+		List<Task> taskList = TaskList.listOfTask;
+		taskList.add(newTask);
 	}
-	
+
 	public void update(int id, Task updatedTask) {
-				
-		for (int i = 0; i < arr.length; i++) {
-			
-			Task currentTask = arr[i];
-			
-			if (currentTask == null) {
-				continue;
-			}
-			if (currentTask.getId() == id) {
-				
-				currentTask.setName(updatedTask.getName());
-				break;
-				
-			}
-		}
-		
-	}
-	
-	public void delete(int id, Task updatedUser) {
-				
-		for (int i = 0; i < arr.length; i++) {
-			
-			Task currentTask = arr[i];
-			
-			if (currentTask == null) {
-				continue;
-			}
-			if (currentTask.getId() == id) {
-				currentTask.setActive(false);
-			}
-		}
-		
-	}
-	
-	public Task getById(int id) {
-		
-		Task matchedTask = null;
-		
-		for (int i = 0; i < arr.length; i++) {
-			
-			Task currentTask = arr[i];
-			
-			if (currentTask == null) {
-				continue;
-			}
-			if (currentTask.getId() == id) {
-				matchedTask = currentTask;
-				System.out.print(currentTask);
+
+		List<Task> list = TaskList.listOfTask;
+
+		for (Task name : list) {
+
+			Task task = name;
+
+			if (task.getId() == id) {
+				task.setName(updatedTask.getName());
+				task.setDueDate(updatedTask.getDueDate());
 				break;
 			}
-			
 		}
-		return matchedTask;
-		
+
+	}
+
+	public void delete(int id) {
+
+		List<Task> list = TaskList.listOfTask;
+
+		for (Task name : list) {
+
+			Task task = name;
+
+			if (task.getId() == id) {
+				task.setActive(false);
+				break;
+			}
+		}
+	}
+
+
+	public Task findById(int taskId) {
+
+		List<Task> taskList = TaskList.listOfTask;
+
+		Task taskMatch = null;
+
+		for (Task name : taskList) {
+
+			Task task = name;
+
+			if (task.getId() == taskId) {
+				taskMatch = task;
+				break;
+			}
+		}
+		return taskMatch;
 	}
 
 }

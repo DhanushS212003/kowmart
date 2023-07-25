@@ -1,60 +1,65 @@
 package in.dhanushselvam.kowmart.service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 import in.dhanushselvam.kowmart.dao.TaskDAO;
+import in.dhanushselvam.kowmart.dao.UserDAO;
 import in.dhanushselvam.kowmart.exception.ValidationException;
 import in.dhanushselvam.kowmart.model.Task;
+import in.dhanushselvam.kowmart.model.TaskEntity;
+import in.dhanushselvam.kowmart.model.User;
 import in.dhanushselvam.kowmart.validation.TaskValidator;
+import in.dhanushselvam.kowmart.validation.UserValidator;
 
 public class TaskService {
 
-	public Task[] getAll() {
+	private TaskDAO taskDao;
 
-		TaskDAO TaskDao = new TaskDAO();
-		Task[] taskList = TaskDao.findAll();
+	public TaskService() {
+		this.taskDao = new TaskDAO();
+	}
 
-		for (int i = 0; i < taskList.length; i++) {
-			System.out.println(taskList[i]);
+	public List<Task> getAll() {
+
+		List<Task> taskList = taskDao.findAll();
+		for (Task task : taskList) {
+			System.out.print(task);
 		}
-
 		return taskList;
+	}
+
+	public void create(Task newTask) throws Exception {
+
+		TaskValidator.validate(newTask);
+		TaskDAO taskDao = new TaskDAO();
+		taskDao.create(newTask);
 
 	}
 
-	public void create(Task task) throws ValidationException {
+	public void update(int id, Task updatedUser) {
 
-		TaskValidator.validate(task);
 		TaskDAO taskDao = new TaskDAO();
-		taskDao.create(task);
+		taskDao.update(id, updatedUser);
 
 	}
 
-	public void update() {
-
-		Task updatedTask = new Task();
-
-		updatedTask.setName("Dhanush");
+	public void delete(int id) {
 
 		TaskDAO taskDao = new TaskDAO();
-		taskDao.update(2, updatedTask);
-
+		taskDao.delete(id);
 	}
 
-	public void delete() {
-
-		Task deleteTask = new Task();
-		deleteTask.setActive(false);
-
-		TaskDAO taskDao = new TaskDAO();
-		taskDao.delete(2, deleteTask);
-	}
-
-	public Task getById() {
-
-		TaskDAO taskDao = new TaskDAO();
-		Task task = taskDao.getById(1);
-		System.out.println(task);
-		return task;
-
+	public static LocalDate convertToDate(String dateString) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		try {
+			LocalDate localDate = LocalDate.parse(dateString, formatter);
+			return localDate;
+		} catch (Exception e) {
+			System.out.println("Invalid date format!");
+			return null;
+		}
 	}
 
 }

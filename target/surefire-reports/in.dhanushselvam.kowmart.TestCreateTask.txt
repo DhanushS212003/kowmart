@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------
+Test set: in.dhanushselvam.kowmart.TestCreateTask
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.146 s <<< FAILURE! - in in.dhanushselvam.kowmart.TestCreateTask
+in.dhanushselvam.kowmart.TestCreateTask.testCreateTaskWithValidData()  Time elapsed: 0.11 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: in.dhanushselvam.kowmart.exception.ValidationException: Due Date cannot be before than today
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.dhanushselvam.kowmart.TestCreateTask.testCreateTaskWithValidData(TestCreateTask.java:29)
+Caused by: in.dhanushselvam.kowmart.exception.ValidationException: Due Date cannot be before than today
+	at in.dhanushselvam.kowmart.validation.TaskValidator.isValidDueDate(TaskValidator.java:24)
+	at in.dhanushselvam.kowmart.validation.TaskValidator.validate(TaskValidator.java:18)
+	at in.dhanushselvam.kowmart.service.TaskService.create(TaskService.java:28)
+	at in.dhanushselvam.kowmart.TestCreateTask.lambda$testCreateTaskWithValidData$0(TestCreateTask.java:30)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+

@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: in.dhanushselvam.kowmart.TestCreateUser
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in in.dhanushselvam.kowmart.TestCreateUser
+in.dhanushselvam.kowmart.TestCreateUser.testCreateUserWithPasswordEmpty()  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
+	at in.dhanushselvam.kowmart.TestCreateUser.testCreateUserWithPasswordEmpty(TestCreateUser.java:90)
+
+in.dhanushselvam.kowmart.TestCreateUser.testCreateUserWithPasswordNull()  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
+	at in.dhanushselvam.kowmart.TestCreateUser.testCreateUserWithPasswordNull(TestCreateUser.java:108)
+

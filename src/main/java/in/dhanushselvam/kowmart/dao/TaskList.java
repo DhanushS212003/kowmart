@@ -1,9 +1,11 @@
 package in.dhanushselvam.kowmart.dao;
 
+import java.util.ArrayList;
+import java.util.List;
 import in.dhanushselvam.kowmart.model.Task;
 
 public class TaskList {
 	
-	public static Task[] listOfTask = new Task[10];
+	public static List<Task> listOfTask = new ArrayList<>();
 
 }

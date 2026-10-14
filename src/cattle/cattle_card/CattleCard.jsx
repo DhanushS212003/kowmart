@@ -5,13 +5,11 @@ import { AppContext } from "../../context";
 const CattleCard = ({ cattle, onlyStatus }) => {
   const { currentUser, verifiedCattlesList, rejectedCattlesList } =
     useContext(AppContext);
-  const { images, breed, cattle: category, id, cattleId, price } = cattle;
-  const userVerifiedCattlesList = verifiedCattlesList.filter(
-    (e) => e.userId == currentUser.id
-  );
-  const userRejectedCattlesList = rejectedCattlesList.filter(
-    (e) => e.userId == currentUser.id
-  );
+  const { images, breed, cattle: category, id, cattleId } = cattle;
+  const userVerifiedCattlesList =
+    onlyStatus && verifiedCattlesList.filter((e) => e.userId == currentUser.id);
+  const userRejectedCattlesList =
+    onlyStatus && rejectedCattlesList.filter((e) => e.userId == currentUser.id);
 
   return (
     <div className="cattle_card">
